@@ -1,9 +1,17 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from myapp.models import *
+from django.db.models import Q
 
 # Create your views here.
 def home_page(request):
-    data = Student.objects.all()
+    query = request.GET.get('search')
+    if query:
+        data = Student.objects.filter(
+            Q(name__icontains=query) |
+            Q(email__icontains=query) 
+        )
+    else:
+        data = Student.objects.all()
     context = {
         'data':data,
     }

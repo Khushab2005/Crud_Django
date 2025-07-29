@@ -22,10 +22,23 @@
 		<div class="table-wrapper">
 			<div class="table-title">
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-sm-3">
 						<h2>CRUD <b>Operation</b></h2>
 					</div>
 					<div class="col-sm-6">
+			        <form method="GET" action="">
+	                        <div class="input-group mb-3">
+		                    <input type="text" name="search" class="form-control" placeholder="Search students..." value="{{ request.GET.search }}">
+		                    <div class="input-group-append">
+			        <button class="btn btn-primary" type="submit">Search</button>
+		                    </div>
+	                        </div>
+                    </form>
+
+					</div>
+
+					
+					<div class="col-sm-3">
 						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
 					</div>
 				</div>
